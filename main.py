@@ -27,5 +27,25 @@ while True:
     if event == sg.WIN_CLOSED:
         break
 
+    if event == "-OK-":
+        W = values["-WEIGHT-"]
+        H = values["-HEIGHT-"]
+        H = H * 10 ** -2
+        BMI = W/(H**2)
+        if BMI < 18.5:
+            window["-BMIVALUE-"].update(f"Your BMI: {round(BMI, 2)} thin")
+            window["-BMIIMAGE-"].update("Pic/thin.png")
+        elif 18.5 <= BMI <= 24.9:
+            window["-BMIVALUE-"].update(f"Your BMI: {round(BMI, 2)} normal")
+            window["-BMIIMAGE-"].update("Pic/normal.png")
+        elif 25 <= BMI <= 29.9:
+            window["-BMIVALUE-"].update(f"Your BMI: {round(BMI, 2)} Overweight")
+            window["-BMIIMAGE-"].update("Pic/over.png")
+        elif 30 <= BMI <= 34.9:
+            window["-BMIVALUE-"].update(f"Your BMI: {round(BMI, 2)} fat")
+            window["-BMIIMAGE-"].update("Pic/fat.png")
+        elif 35 <= BMI:
+            window["-BMIVALUE-"].update(f"Your BMI: {round(BMI, 2)} very fat")
+            window["-BMIIMAGE-"].update("Pic/veryfat.png")
 
 window.close()
